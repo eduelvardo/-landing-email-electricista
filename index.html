@@ -221,12 +221,9 @@ document.getElementById("lead-form").addEventListener("submit", function(e) {
     email: document.getElementById("email").value,
     whatsapp: document.getElementById("whatsapp").value
   };
-
 fetch("https://script.google.com/macros/s/AKfycbzoaeH8C4oK7I1Grr5UlkfehYeRxCXZyl0EiN_uGTDtsgs3-W5CPQ4iOT1jKoBrVuts/exec", {
   method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
+  mode: "no-cors",
   body: JSON.stringify(data)
 })
   .then(() => {
