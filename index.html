@@ -61,9 +61,8 @@
       <li class="flex items-center gap-3"><i data-lucide="check-circle" style="color: #FFD60A; width: 18px; height: 18px; flex-shrink:0;"></i> <span id="el-b3" class="text-sm" style="color: rgba(255,255,255,0.8);">Empezá a cerrar más trabajos</span></li>
      </ul>
     </div><!-- Form -->
-    <form id="lead-form" action="5%20ERRORES.pdf" class="fade-up fade-up-d4 space-y-4 mb-8">
-  <input type="hidden" name="form-name" value="leads">
-     <div><label for="nombre" class="block text-xs font-medium mb-1.5 tracking-wide uppercase" style="color: rgba(255,255,255,0.5);">Nombre *</label> <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" class="w-full rounded-lg px-4 py-3 text-sm font-poppins transition-all" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: #fff;">
+    <form id="lead-form" class="fade-up fade-up-d4 space-y-4 mb-8">
+       <div><label for="nombre" class="block text-xs font-medium mb-1.5 tracking-wide uppercase" style="color: rgba(255,255,255,0.5);">Nombre *</label> <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" class="w-full rounded-lg px-4 py-3 text-sm font-poppins transition-all" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: #fff;">
      </div>
      <div><label for="email" class="block text-xs font-medium mb-1.5 tracking-wide uppercase" style="color: rgba(255,255,255,0.5);">Email *</label> <input type="email" id="email" name="email" required placeholder="tu@email.com" class="w-full rounded-lg px-4 py-3 text-sm font-poppins transition-all" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: #fff;">
      </div>
@@ -213,5 +212,27 @@
 
   lucide.createIcons();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e9a5b0a22761fe4',t:'MTc3NTc0NjU1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e9a5b0a22761fe4',t:'MTc3NTc0NjU1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>
+document.getElementById("lead-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const data = {
+    nombre: document.getElementById("nombre").value,
+    email: document.getElementById("email").value,
+    whatsapp: document.getElementById("whatsapp").value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzoaeH8C4oK7I1Grr5UlkfehYeRxCXZyl0EiN_uGTDtsgs3-W5CPQ4iOT1jKoBrVuts/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    window.location.href = "5%20ERRORES.pdf";
+  })
+  .catch(() => {
+    alert("Error, intentá de nuevo");
+  });
+});
+</script></body>
+
 </html>
